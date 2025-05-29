@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Resume Form AutoFiller",
+  "version": "1.0",
+  "description": "Uploads resume, extracts info, and autofills Google Forms.",
+  "permissions": ["scripting", "activeTab", "storage"],
+  "host_permissions": ["http://localhost:5000/"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://docs.google.com/forms/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [{
+    "resources": ["*.js"],
+    "matches": ["<all_urls>"]
+  }]
+}
